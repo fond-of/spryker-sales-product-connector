@@ -2,6 +2,8 @@
 
 namespace FondOfSpryker\Zed\SalesProductConnector\Business\Model;
 
+use Generated\Shared\Transfer\OrderTransfer;
+use Generated\Shared\Transfer\SaveOrderTransfer;
 use Spryker\Zed\SalesProductConnector\Business\Model\ItemMetadataSaver as SprykerItemMetadataSaver;
 
 
@@ -14,10 +16,10 @@ class ItemMetadataSaver extends  SprykerItemMetadataSaver implements ItemMetadat
      *
      * @throws \Throwable
      */
-    public function saveItemsMetadataFromOrderTransfer(OrderTransfer $orderTransfer): void
+    public function saveItemsMetadataFromOrderTransfer(OrderTransfer $orderTransfer, SaveOrderTransfer $saveOrderTransfer): void
     {
-        $this->handleDatabaseTransaction(function () use ($orderTransfer) {
-            foreach ($orderTransfer->getItems() as $item) {
+        $this->handleDatabaseTransaction(function () use ($saveOrderTransfer) {
+            foreach ($saveOrderTransfer->getOrderItems() as $item) {
                 $this->saveItemMetadata($item);
             }
         });
