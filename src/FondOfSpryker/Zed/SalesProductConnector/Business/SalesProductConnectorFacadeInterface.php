@@ -11,6 +11,6 @@ interface SalesProductConnectorFacadeInterface extends SprykerSalesProductConnec
     /**
      * @param \FondOfSpryker\Zed\SalesProductConnector\Business\OrderTransfer $orderTransfer
      */
-    public function saveOrderItemMetadataFromOrderTransfer(OrderTransfer $orderTransfer, SaveOrderTransfer $saveOrderTransfer): void;
+    public function saveOrderItemMetadataFromOrderTransfer(SaveOrderTransfer $saveOrderTransfer): SaveOrderTransfer;
 
 }

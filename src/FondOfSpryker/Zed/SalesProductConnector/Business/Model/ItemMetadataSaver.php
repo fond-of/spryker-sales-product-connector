@@ -16,12 +16,14 @@ class ItemMetadataSaver extends  SprykerItemMetadataSaver implements ItemMetadat
      *
      * @throws \Throwable
      */
-    public function saveItemsMetadataFromOrderTransfer(OrderTransfer $orderTransfer, SaveOrderTransfer $saveOrderTransfer): void
+    public function saveItemsMetadataFromOrderTransfer(SaveOrderTransfer $saveOrderTransfer): SaveOrderTransfer
     {
         $this->handleDatabaseTransaction(function () use ($saveOrderTransfer) {
             foreach ($saveOrderTransfer->getOrderItems() as $item) {
                 $this->saveItemMetadata($item);
             }
         });
+
+        return $saveOrderTransfer;
     }
 }

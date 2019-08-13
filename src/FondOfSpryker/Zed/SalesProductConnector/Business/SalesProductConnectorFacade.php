@@ -15,10 +15,10 @@ class SalesProductConnectorFacade extends SprykerSalesProductConnectorFacade imp
     /**
      * @param \Generated\Shared\Transfer\OrderTransfer $orderTransfer
      */
-    public function saveOrderItemMetadataFromOrderTransfer(OrderTransfer $orderTransfer, SaveOrderTransfer $saveOrderTransfer): void
+    public function saveOrderItemMetadataFromOrderTransfer(SaveOrderTransfer $saveOrderTransfer): SaveOrderTransfer
     {
-        $this->getFactory()
+        return $this->getFactory()
             ->createItemMetadataSaver()
-            ->saveItemsMetadataFromOrderTransfer($orderTransfer, $saveOrderTransfer);
+            ->saveItemsMetadataFromOrderTransfer($saveOrderTransfer);
     }
 }

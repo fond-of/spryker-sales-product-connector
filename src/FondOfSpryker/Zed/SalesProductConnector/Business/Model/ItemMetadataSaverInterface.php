@@ -13,5 +13,5 @@ interface ItemMetadataSaverInterface extends SprykerItemMetadataSaverInterface
      *
      * @return void
      */
-    public function saveItemsMetadataFromOrderTransfer(OrderTransfer $orderTransferm, SaveOrderTransfer $saveOrderTransfer) : void;
+    public function saveItemsMetadataFromOrderTransfer(SaveOrderTransfer $saveOrderTransfer) : SaveOrderTransfer;
 }
