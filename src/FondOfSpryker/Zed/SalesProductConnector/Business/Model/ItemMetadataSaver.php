@@ -2,19 +2,17 @@
 
 namespace FondOfSpryker\Zed\SalesProductConnector\Business\Model;
 
-use Generated\Shared\Transfer\OrderTransfer;
 use Generated\Shared\Transfer\SaveOrderTransfer;
 use Spryker\Zed\SalesProductConnector\Business\Model\ItemMetadataSaver as SprykerItemMetadataSaver;
 
-
-class ItemMetadataSaver extends  SprykerItemMetadataSaver implements ItemMetadataSaverInterface
+class ItemMetadataSaver extends SprykerItemMetadataSaver implements ItemMetadataSaverInterface
 {
     /**
-     * @param \FondOfSpryker\Zed\SalesProductConnector\Business\Model\OrderTransfer $orderTransfer
+     * @param \Generated\Shared\Transfer\SaveOrderTransfer $saveOrderTransfer
      *
-     * @return void
+     * @throws
      *
-     * @throws \Throwable
+     * @return \Generated\Shared\Transfer\SaveOrderTransfer
      */
     public function saveItemsMetadataFromOrderTransfer(SaveOrderTransfer $saveOrderTransfer): SaveOrderTransfer
     {

@@ -2,9 +2,7 @@
 
 namespace FondOfSpryker\Zed\SalesProductConnector\Business;
 
-use Generated\Shared\Transfer\OrderTransfer;
 use Generated\Shared\Transfer\SaveOrderTransfer;
-use Spryker\Zed\Kernel\Business\AbstractFacade;
 use Spryker\Zed\SalesProductConnector\Business\SalesProductConnectorFacade as SprykerSalesProductConnectorFacade;
 
 /**
@@ -13,12 +11,15 @@ use Spryker\Zed\SalesProductConnector\Business\SalesProductConnectorFacade as Sp
 class SalesProductConnectorFacade extends SprykerSalesProductConnectorFacade implements SalesProductConnectorFacadeInterface
 {
     /**
-     * @param \Generated\Shared\Transfer\OrderTransfer $orderTransfer
+     * @param \Generated\Shared\Transfer\SaveOrderTransfer $saveOrderTransfer
+     *
+     * @return \Generated\Shared\Transfer\SaveOrderTransfer
      */
     public function saveOrderItemMetadataFromOrderTransfer(SaveOrderTransfer $saveOrderTransfer): SaveOrderTransfer
     {
-        return $this->getFactory()
-            ->createItemMetadataSaver()
-            ->saveItemsMetadataFromOrderTransfer($saveOrderTransfer);
+        /** @var \FondOfSpryker\Zed\SalesProductConnector\Business\Model\ItemMetadataSaverInterface $itemMetadataSaver */
+        $itemMetadataSaver = $this->getFactory()->createItemMetadataSaver();
+
+        return $itemMetadataSaver->saveItemsMetadataFromOrderTransfer($saveOrderTransfer);
     }
 }

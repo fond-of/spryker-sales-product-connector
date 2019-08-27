@@ -2,9 +2,6 @@
 
 namespace FondOfSpryker\Zed\SalesProductConnector\Communication\Plugin\Sales;
 
-use FondOfSpryker\Zed\Sales\Dependency\Plugin\OrderCreatePluginInterface;
-use FondOfSpryker\Zed\SalesExtension\Dependency\Plugin\SalesOrderPostCreatePluginInterface;
-use Generated\Shared\Transfer\OrderTransfer;
 use Generated\Shared\Transfer\QuoteTransfer;
 use Generated\Shared\Transfer\SaveOrderTransfer;
 use Spryker\Zed\Kernel\Communication\AbstractPlugin;
@@ -18,8 +15,10 @@ use Spryker\Zed\SalesExtension\Dependency\Plugin\OrderPostSavePluginInterface;
 class ItemMetadataSaverPlugin extends AbstractPlugin implements OrderPostSavePluginInterface
 {
     /**
-     * @param \Generated\Shared\Transfer\OrderTransfer $orderTransfer
      * @param \Generated\Shared\Transfer\SaveOrderTransfer $saveOrderTransfer
+     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
+     *
+     * @return \Generated\Shared\Transfer\SaveOrderTransfer
      */
     public function execute(SaveOrderTransfer $saveOrderTransfer, QuoteTransfer $quoteTransfer): SaveOrderTransfer
     {
