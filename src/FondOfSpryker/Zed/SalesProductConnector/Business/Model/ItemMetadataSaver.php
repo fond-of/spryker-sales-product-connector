@@ -10,8 +10,6 @@ class ItemMetadataSaver extends SprykerItemMetadataSaver implements ItemMetadata
     /**
      * @param \Generated\Shared\Transfer\SaveOrderTransfer $saveOrderTransfer
      *
-     * @throws
-     *
      * @return \Generated\Shared\Transfer\SaveOrderTransfer
      */
     public function saveItemsMetadataFromOrderTransfer(SaveOrderTransfer $saveOrderTransfer): SaveOrderTransfer
