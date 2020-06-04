@@ -8,7 +8,6 @@ use Spryker\Zed\Kernel\Communication\AbstractPlugin;
 use Spryker\Zed\SalesExtension\Dependency\Plugin\OrderPostSavePluginInterface;
 
 /**
- *
  * @method \FondOfSpryker\Zed\SalesProductConnector\Business\SalesProductConnectorFacadeInterface getFacade()
  * @method \Spryker\Zed\SalesProductConnector\Persistence\SalesProductConnectorQueryContainerInterface getQueryContainer()
  */
