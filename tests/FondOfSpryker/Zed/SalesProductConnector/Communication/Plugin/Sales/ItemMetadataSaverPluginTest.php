@@ -3,9 +3,10 @@
 namespace FondOfSpryker\Zed\SalesProductConnector\Communication\Plugin\Sales;
 
 use Codeception\Test\Unit;
-use FondOfSpryker\Zed\SalesProductConnector\Business\SalesProductConnectorFacadeInterface;
+use FondOfSpryker\Zed\SalesProductConnector\Business\SalesProductConnectorFacade;
 use Generated\Shared\Transfer\QuoteTransfer;
 use Generated\Shared\Transfer\SaveOrderTransfer;
+use Spryker\Zed\Kernel\Business\AbstractFacade;
 
 class ItemMetadataSaverPluginTest extends Unit
 {
@@ -42,7 +43,7 @@ class ItemMetadataSaverPluginTest extends Unit
             ->disableOriginalConstructor()
             ->getMock();
 
-        $this->salesProductConnectorFacadeInterfaceMock = $this->getMockBuilder(SalesProductConnectorFacadeInterface::class)
+        $this->salesProductConnectorFacadeInterfaceMock = $this->getMockBuilder(SalesProductConnectorFacade::class)
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -55,17 +56,17 @@ class ItemMetadataSaverPluginTest extends Unit
             protected $salesProductConnectorFacade;
 
             /**
-             * @param \FondOfSpryker\Zed\SalesProductConnector\Business\SalesProductConnectorFacadeInterface $salesProductConnectorFacade
+             * @param \FondOfSpryker\Zed\SalesProductConnector\Business\SalesProductConnectorFacade $salesProductConnectorFacade
              */
-            public function __construct(SalesProductConnectorFacadeInterface $salesProductConnectorFacade)
+            public function __construct(SalesProductConnectorFacade $salesProductConnectorFacade)
             {
                 $this->salesProductConnectorFacade = $salesProductConnectorFacade;
             }
 
             /**
-             * @return \FondOfSpryker\Zed\SalesProductConnector\Business\SalesProductConnectorFacadeInterface
+             * @return \Spryker\Zed\Kernel\Business\AbstractFacade
              */
-            public function getFacade(): SalesProductConnectorFacadeInterface
+            protected function getFacade(): AbstractFacade
             {
                 return $this->salesProductConnectorFacade;
             }
